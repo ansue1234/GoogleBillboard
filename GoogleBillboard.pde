@@ -1,13 +1,8 @@
-public final static String e = "2.718281828459045235360287471352662497757247093699959574966967627724076630353547594571382178525166427427466391932003059";  
+public final static String e = "2.718281828459045235360287471352662497757247093699959574966967627724076630353547594571382178525166427427466391932003059921817413596629043572900334295260595630738132328627943490763233829880753195251019011573834187930702154089149934884167509244761460668082264800168477411853742345442437107539077744992069";  
 public void setup()  
 {
-  int b = 0;
 	ans();
-  ans2();
-  for(int d = 2; d<e.length();d++){
-    b++;
-  }
-  System.out.println("b is"+b);
+  	ans2();
     noLoop();  
 }  
 public void draw()  
@@ -17,20 +12,16 @@ public void draw()
 
 
 public double ans(){
-  int c=0;
 	String digits;
 	double dNum = 0;
 	for(int i = 2;i<e.length()-10;i++){
 		digits = e.substring(i,i+10);
 		dNum = Double.parseDouble(digits);
-		//System.out.println(dNum);  
 		if(isPrime(dNum)==true){
-			System.out.println(dNum);
+			System.out.println("First prime is:"+digits);
 			break;
 		} 
-    c++;
-	} 
-	System.out.println("Times:"+c);    
+	}   
 	return(dNum);  
 }
 
@@ -46,7 +37,6 @@ public boolean isPrime(double dNum)
 } 
 
 public double ans2(){
-  double an =0;
   int dits = 0;
   int sum = 0;
   int count = 0;
@@ -54,25 +44,19 @@ public double ans2(){
   String num;
   for(int f = 2;f<e.length()-10;f++){
     group = e.substring(f,f+10);
-    for(int j = 0; j<group.length();j++){
+    for(int j = 0; j<10;j++){
       num = group.substring(j,j+1);
       dits = Integer.parseInt(num);
-      an = Double.parseDouble(group);
       sum = sum + dits;
     }
     if(sum==49){
         count++;
-        System.out.println(group);
-        System.out.println(count);
+    }   
+    if(count==5){
+      System.out.println("f(5)="+group);
+      break;
     }
-       //System.out.println(sum);
-    //System.out.println(count);
-    //if(count==5){
-    //   //System.out.println(group);
-    //    break;
-    //}
     sum = 0;
   }
-  
   return 0;
 }
